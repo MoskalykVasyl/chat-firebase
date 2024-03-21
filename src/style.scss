@@ -1,0 +1,171 @@
+body {
+  margin: 0;
+}
+.formContainer {
+  background-image: url('./image/background.jpg');
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .formWrapper {
+    background-color: white;
+    padding: 20px 60px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    .logo {
+      color: #2f3020;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .title {
+      color: #2f3020;
+      font-size: 14px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      input {
+        padding: 15px;
+        border: none;
+        width: 250px;
+        border-bottom: 1px solid #596235;
+        &::placeholder {
+          color: rgb(175, 175, 175);
+        }
+      }
+      label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #2f3020;
+        font-size: 14px;
+        cursor: pointer;
+        img {
+          height: 40px;
+          width: 40px;
+        }
+      }
+
+      button {
+        background-color: #d96846;
+        color: white;
+        padding: 10px;
+        font-weight: bolt;
+        border: none;
+        cursor: pointer;
+      }
+    }
+    p {
+      color: #2f3020;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  }
+}
+
+.home {
+  background-image: url('./image/background.jpg');
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 65%;
+    height: 80%;
+    display: flex;
+    overflow: hidden;
+
+    .sidebar {
+      flex: 1;
+      background-color: #404040;
+
+      .navbar{
+        display: flex;
+        align-items: center;
+        background-color: #202020;
+        height: 50px;
+        padding: 10px;
+        justify-content: space-between;
+        color: #ddddf7;
+
+        .logo{
+          font-weight: bold;
+        }
+
+        .user{
+          display: flex;
+        align-items: center;
+          gap: 10px;
+
+          img{
+            background-color: #ddddf7;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          button{
+            background-color: #404040;
+            color: #ddddf7;
+            font-size: 10px;
+            border: none;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .search{
+        border-bottom: 1px solid gray;
+
+        .searchForm{
+          padding: 10px;
+          input{
+            background-color: transparent;
+            border: none;
+            color: white;
+            outline: none;
+
+            &::placeholder{color: rgb(126, 124, 124);}
+          }
+        }
+
+        .userChat{
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          color: white;
+          cursor: pointer;
+
+          &:hover{
+            background-color: #202020;
+          }
+          img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+    .chat {
+      flex: 2;
+    }
+  }
+}
