@@ -1,3 +1,19 @@
+@mixin mobile {
+  @media screen and (max-width: 480px){
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px){
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px){
+    @content;
+  }
+}
+
 body {
   margin: 0;
 }
@@ -22,6 +38,7 @@ body {
       color: #2f3020;
       font-weight: bold;
       font-size: 24px;
+      
     }
 
     .title {
@@ -88,10 +105,14 @@ body {
     height: 80%;
     display: flex;
     overflow: hidden;
+    @include tablet{
+      width: 90%;
+    }
 
     .sidebar {
       flex: 1;
       background-color: #404040;
+      position: relative;
 
       .navbar{
         display: flex;
@@ -104,6 +125,9 @@ body {
 
         .logo{
           font-weight: bold;
+          @include tablet {
+            display: none;
+          }
         }
 
         .user{
@@ -125,6 +149,11 @@ body {
             font-size: 10px;
             border: none;
             cursor: pointer;
+            @include tablet{
+              position: absolute;
+              bottom: 10px;
+              background-color: #202020;
+            }
           }
         }
       }
@@ -228,7 +257,8 @@ body {
             gap: 10px;
 
             p{
-              background-color: #483D8B;
+              background-color: #3d8b57;
+              color: white;
               padding: 10px 20px;
               border-radius: 0px 10px 10px 10px;
               max-width: max-content;
