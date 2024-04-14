@@ -33,6 +33,9 @@ body {
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    @include mobile{
+      padding: 20px;
+    }
 
     .logo {
       color: #2f3020;
@@ -113,6 +116,8 @@ body {
       flex: 1;
       background-color: #404040;
       position: relative;
+      overflow-y: scroll;
+      scrollbar-width: none;
 
       .navbar{
         display: flex;
@@ -148,7 +153,11 @@ body {
             color: #ddddf7;
             font-size: 10px;
             border: none;
+            border-radius: 10px;
             cursor: pointer;
+            &:hover{
+              background-color: red;
+            }
             @include tablet{
               position: absolute;
               bottom: 10px;
@@ -168,12 +177,12 @@ body {
             border: none;
             color: white;
             outline: none;
-
+          width: 60%;
             &::placeholder{color: rgb(126, 124, 124);}
           }
         }
       }
-
+     
       .userChat{
         padding: 10px;
         display: flex;
@@ -220,14 +229,14 @@ body {
         .chatIcons{
           display: flex;
           gap: 10px;
-        img{ height: 25px; width: 25px; cursor: pointer;}
+        img{ height: 25px; width: 25px; }
         }
       }
 
       .messages{
         background-color: #ddddf7;
         padding: 10px;
-        height: calc(100% - 160px);
+        height: calc(100% - 140px);
         overflow-y: scroll;
         scrollbar-width: thin;
         
@@ -287,7 +296,6 @@ body {
       .input{
         height: 50px;
         background-color: white;
-        padding: 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -307,6 +315,7 @@ body {
         .send{
           display: flex;
           gap: 5px;
+          padding-right: 5px;
           align-items: center;
 
           img{

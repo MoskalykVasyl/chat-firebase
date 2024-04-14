@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import Img from '../image/addPhoto.svg';
-import Clip from '../image/clip.svg';
 import { AuthContext } from '../context/AuthContext';
 import { ChatContext } from '../context/ChatContext';
 import {
@@ -73,7 +72,6 @@ const Input = () => {
         value={text}
       />
       <div className="send">
-        <img src={Clip} alt="file" />
         <input
           type="file"
           style={{ display: 'none' }}

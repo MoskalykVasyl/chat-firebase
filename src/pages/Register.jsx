@@ -75,7 +75,6 @@ const Register = () => {
   };
 
   const chechPass = debounce(() => {
-    console.log('checking password');
     console.log(errPass);
     if (password.length < 5) {
       setErrPass(true);
@@ -92,7 +91,7 @@ const Register = () => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">Homely chat</span>
+        <span className="logo">Moskalyk chat</span>
         <span className="title">Register</span>
         <form ref={parent} onSubmit={handleSubmit}>
           <input type="text" placeholder="Nickname" />

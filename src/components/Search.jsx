@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { collection, getDocs, getDoc, query, where, setDoc, doc, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthContext } from '../context/AuthContext';
@@ -11,31 +11,37 @@ const Search = () => {
 
   const {dispatch} = useContext(ChatContext)
 
+  
 
   const {currentUser} = useContext(AuthContext);
-
+ 
   const handleChange = (event) => {
     setUsername(event.target.value);
   };
 
-  const handleSearch = async () => {
-    const q = query(
-      collection(db, 'users'),
-      where('displayName', '==', username)
-    );
+  useEffect(()=>{
+    const handleSearch = async () => {
+      const q = query(
+        collection(db, 'users'),
+        where('displayName', '==', username)
+      );
+  
+      try {
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          setUser(doc.data());
+        });
+      } catch (error) {
+        setErr(true);
+      }
+    };
 
-    try {
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setUser(doc.data());
-      });
-    } catch (error) {
-      setErr(true);
-    }
-  };
-  const handleKey = (event) => {
-    event.key === 'Enter' && handleSearch();
-  };
+    handleSearch();
+
+    if(username.length === 0){ setUser(null)}
+
+  }, [username])
+
 
   const handleSelect = async (user) => {
     // check whether the group(chats in firestore) exist,if not create
@@ -84,9 +90,8 @@ const Search = () => {
         <input
           type="text"
           placeholder="Find a user"
-          onChange={handleChange}
-          onKeyDown={handleKey}
           value={username}
+          onChange={handleChange}
         />
       </div>
       {err && <span>User not found!</span>}
