@@ -9,7 +9,6 @@ import { debounce } from 'lodash';
 import autoAnimate from '@formkit/auto-animate';
 import { RotatingLines } from 'react-loader-spinner';
 
-
 const Register = () => {
   const [err, setErr] = useState(false);
   const [password, setPassword] = useState('');
@@ -32,7 +31,6 @@ const Register = () => {
     const password = e.target[2].value;
     const file = e.target[3].files[0];
 
-    
     try {
       setLoading(true);
       //Create user
@@ -70,13 +68,13 @@ const Register = () => {
       });
     } catch (err) {
       setErr(true);
-      setLoading(false);
+      setLoading(true); 
     }
   };
 
   const chechPass = debounce(() => {
     console.log(errPass);
-    if (password.length < 5) {
+    if (password.length < 6) { 
       setErrPass(true);
     } else {
       setErrPass(false);
@@ -94,20 +92,20 @@ const Register = () => {
         <span className="logo">Moskalyk chat</span>
         <span className="title">Register</span>
         <form ref={parent} onSubmit={handleSubmit}>
-          <input type="text" placeholder="Nickname" />
-          <input type="email" placeholder="Email" />
+          <input type="text" placeholder="Nickname"  />
+          <input type="email" placeholder="Email"  /> 
           <input
             type="password"
             placeholder="Password"
             onChange={handlePassword}
             value={password}
-          />
+           /> 
           {errPass && (
             <span style={{ color: 'red' }}>
-              Min password length ( renges form 6 to 30)
+              Min password length ranges from 6 to 30
             </span>
           )}
-          <input style={{ display: 'none' }} type="file" id="file" />
+          <input style={{ display: 'none' }} type="file" id="file"  /> 
           <label htmlFor="file">
             <img src={Add} alt="" />
             <span>Add an avatar</span>
@@ -118,19 +116,19 @@ const Register = () => {
           {err && <span>Something wrong!</span>}
         </form>
         <p>
-          If have you already an account. <Link to="/login">Login</Link>
+          If have you already an account. <Link to="/login">Login</Link> 
         </p>
         <RotatingLines
-              visible={loading}
-              height="30"
-              width="30"
-              color="grey"
-              strokeWidth="5"
-              animationDuration="0.75"
-              ariaLabel="rotating-lines-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-            />
+          visible={loading}
+          height="30"
+          width="30"
+          color="grey"
+          strokeWidth="5"
+          animationDuration="0.75"
+          ariaLabel="rotating-lines-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+        />
       </div>
     </div>
   );
