@@ -68,13 +68,13 @@ const Register = () => {
       });
     } catch (err) {
       setErr(true);
-      setLoading(true); 
+      setLoading(false); 
     }
   };
 
   const chechPass = debounce(() => {
     console.log(errPass);
-    if (password.length < 6) { 
+    if (password.length < 5) { 
       setErrPass(true);
     } else {
       setErrPass(false);
@@ -116,7 +116,7 @@ const Register = () => {
           {err && <span>Something wrong!</span>}
         </form>
         <p>
-          If have you already an account. <Link to="/login">Login</Link> 
+           If you already have an account <Link to="/login">Login</Link> 
         </p>
         <RotatingLines
           visible={loading}
