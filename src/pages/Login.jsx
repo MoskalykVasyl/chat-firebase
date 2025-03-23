@@ -25,8 +25,8 @@ const Login = () => {
         <span className="logo">Moskalyk chat</span>
         <span className="title">Login</span>
         <form onSubmit={handleSubmit}>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input type="email" placeholder="Email" defaultValue='test2@gmail.com' />
+          <input type="password" placeholder="Password" defaultValue='userrjkz0678570646'/>
           <button>Sign in</button>
           {err && <p>Something wrong!</p>}
         </form>
